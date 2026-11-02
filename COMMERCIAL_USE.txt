@@ -1,0 +1,9 @@
+iPhone USB Internet — commercial use
+
+Copyright © 2026 Zuyis.
+
+The project uses the same PolyForm Noncommercial 1.0.0 license as PC Center.
+Permitted personal, research and other noncommercial uses are described in
+LICENSE. Commercial use requires separate written permission from Zuyis.
+Source availability does not grant a commercial license. The LICENSE controls.
+Third-party components retain their own licenses; these terms do not replace them.

@@ -1,0 +1,11 @@
+iPhone USB Internet — project identity
+
+Zuyis™ and the original orange-phone/yellow-cable project logo identify Zuyis's
+work. The software license does not grant rights to use this branding to imply
+that a modified build or another product is an official Zuyis release.
+Truthful attribution and discussion are permitted. Use different branding for
+unofficial modified distributions and describe the changes accurately.
+
+iPhone is a trademark of Apple Inc. Windows is a trademark of Microsoft.
+This project is independent and is not affiliated with or endorsed by Apple,
+Microsoft, iSH, or any wireless carrier. No ownership of their marks is claimed.

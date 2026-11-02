@@ -1,0 +1,11 @@
+{
+  "name": "iphone-usb-internet-tests",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "test:ui": "node tests/test_ui.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

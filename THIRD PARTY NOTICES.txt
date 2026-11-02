@@ -1,0 +1,19 @@
+Third-party notices
+
+First-party application, original artwork and PC Center-derived UI/window
+code: Copyright © 2026 Zuyis. PolyForm Noncommercial 1.0.0. See LICENSE.
+
+Bundled components retain their own licenses, unaffected by the project's
+noncommercial license or educational-purpose statement:
+Python 3.12: PSF license; Tcl/Tk 8.6: Tcl/Tk license terms.
+pywebview 6.2.1: BSD-3-Clause; Python.NET 3.1.0: MIT.
+pywin32 312: PSF and component-specific licenses.
+clr-loader 0.3.1, proxy-tools 0.1.0, Bottle 0.13.4, cffi 2.1.1: MIT.
+typing-extensions 4.16.0: PSF-2.0; pycparser 3.0: BSD-3-Clause.
+PyInstaller 6.22.2: GPL with its bootloader exception.
+tun2socks: MIT. Wintun official binary redistribution: see bundled license.
+Inno Setup: Inno Setup license (installer engine; source build tool).
+
+The complete applicable license texts are included in licenses/ in the built
+application. WebView2, Apple Devices and iSH are separately installed and are
+not bundled or relicensed by this project.

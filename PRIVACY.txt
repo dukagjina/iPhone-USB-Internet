@@ -1,0 +1,25 @@
+Local data and external connections
+
+New installations keep pairing.dpapi, window-placement.json and session status under %LOCALAPPDATA%/iPhone USB Internet.
+Older portable copies can still read pairing.dpapi beside their executable;
+launching the updated app preserves that encrypted pairing in per-user data
+only if no pairing already exists there. It never silently replaces a key.
+
+Pairing uses Windows DPAPI for the current Windows account. It is not safe to
+publish just because it is encrypted. On the phone, the private relay script
+contains its authentication key. Do not share that script or its backup.
+Other software running as you or as administrator is not isolated by this app.
+
+No telemetry or browsing-history database is implemented. Local session state
+contains counters, health observations and diagnostic errors. The periodic
+HTTPS health request goes through the phone to Cloudflare (one.one.one.one).
+Cloudflare sees the phone's network address like an ordinary HTTPS request.
+
+Opening the app never contacts a phone or update server. There is no built-in
+app updater, remote feed, telemetry, or update download request.
+
+Uninstall keeps per-user pairing and preferences so reinstalling can reuse them.
+After disconnecting and closing all copies, you may delete that data directory
+yourself to forget the pairing and local records. Remove the relay script and
+backup in iSH yourself if retiring the phone. Nothing removes phone data on its
+own. The source export and public installer contain no personal pairing data.

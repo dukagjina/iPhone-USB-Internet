@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<title>iPhone USB Internet</title>
+<link rel="stylesheet" href="pc-center.css">
+<link rel="stylesheet" href="phone.css">
+<link rel="icon" href="iphone-usb.svg">
+</head>
+<body>
+<header class="titlebar" id="titlebar">
+  <div class="brand"><img class="phone-mark" src="iphone-usb.svg" alt=""><span class="brand-name">iPhone USB Internet</span><span class="brand-separator" aria-hidden="true">|</span><span class="brand-credit">Made by <strong>Zuyis</strong></span></div>
+  <div class="window-buttons"><button class="winbtn" id="minimize" aria-label="Minimize">–</button><button class="winbtn danger" id="close" aria-label="Close">✕</button></div>
+</header>
+<main id="main" class="content" tabindex="-1">
+  <div class="dashboard" id="dashboard">
+  <div id="notice" class="inline-notice" role="status" hidden><div><strong id="notice-title"></strong><p id="notice-message"></p></div><button class="btn ghost" id="dismiss_notice" aria-label="Dismiss notice">✕</button></div>
+<section class="hero" aria-label="Connection status">
+      <div class="hero-head connection-head">
+        <div class="connection-copy"><div class="status-heading"><span class="state-dot" id="state-dot" aria-hidden="true"></span><h2 id="status">Disconnected</h2></div><p class="sub" id="message" role="status">Your normal internet is unchanged.</p></div>
+        <button class="btn primary power" id="power" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9m-5-7a8 8 0 1 0 10 0"/></svg><span id="power-text">Starting…</span></button>
+      </div>
+      <div class="hero-metrics phone-metrics">
+        <div class="metric"><div class="metric-label">Downloaded</div><div class="metric-value" id="download">0.0 MB</div><div class="metric-note">Session total</div></div>
+        <div class="metric"><div class="metric-label">Uploaded</div><div class="metric-value" id="upload">0.0 MB</div><div class="metric-note">Session total</div></div>
+        <div class="metric"><div class="metric-label">Active sessions</div><div class="metric-value" id="sessions">0 / —</div><div class="metric-note">In use / available limit</div></div>
+      </div>
+    </section>
+    <section class="card section-card health-card" aria-labelledby="health-title">
+      <header class="section-head"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg><div class="section-copy"><h2 class="section-title" id="health-title">Connection health</h2><p class="section-description">USB response, phone internet and available sessions.</p></div></header>
+      <div class="section-body">
+      <div class="health-grid">
+        <div class="health-item"><span class="eyebrow">USB relay</span><strong id="usb-state">Not checked</strong></div>
+        <div class="health-item"><span class="eyebrow">Phone internet</span><strong id="internet-state">Not checked</strong></div>
+        <div class="health-item"><span class="eyebrow">Capacity</span><strong id="capacity-state">Not in use</strong></div>
+      </div>
+      <details class="health-diagnostics" id="diagnostics">
+        <summary><span>Diagnostics</span><span class="status-pill" id="diagnostic-live">Inactive</span></summary>
+        <div class="details-body"><p class="sub" id="diagnostic-context">Counters appear when a connection starts.</p>
+<div class="counter-grid">
+      <div class="card counter"><span class="eyebrow">Waiting now</span><strong id="waiting-value">0</strong><p>Requests queued for a session.</p></div>
+      <div class="card counter"><span class="eyebrow">Rejected</span><strong id="rejected-value">0</strong><p>Requests refused at capacity.</p></div>
+      <div class="card counter"><span class="eyebrow">Failed requests</span><strong id="failed-value">0</strong><p>Requests that could not complete.</p></div>
+    </div>
+    <div class="card"><div class="card-head"><h2>Session observations</h2></div><dl class="detail-list"><div><dt>USB relay</dt><dd id="usb-detail">Available when connected</dd></div><div><dt>Phone internet</dt><dd id="internet-detail">HTTPS check through your phone</dd></div><div><dt>Capacity</dt><dd id="capacity-detail">Up to 384 sessions</dd></div><div><dt>Peak active sessions</dt><dd id="peak-active">0</dd></div><div><dt>Peak waiting sessions</dt><dd id="peak-waiting">0</dd></div><div><dt>DNS slots freed</dt><dd id="dns-freed">0</dd></div></dl><p id="health_label" class="sub diagnostic-observation">USB and internet checks start when you connect.</p></div>
+    <div class="card"><h2>Reading these numbers</h2><p class="sub card-copy">A short queue can occur when many tabs open together. Rejected and failed requests are totals for the session; an old failure does not mean the connection is failing now. Look for counts that keep rising alongside loading problems.</p><p class="sub card-copy">USB response time measures the local phone relay. The HTTPS check tests a small request through the phone. Neither proves every app is using this connection.</p></div>
+</div>
+      </details>
+      </div>
+    </section>
+    <section class="card section-card setup-card" aria-labelledby="setup-title">
+      <header class="section-head"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 4V2h6v2M8 13l3 3 5-6"/></svg><div class="section-copy"><h2 class="section-title" id="setup-title">Before you connect</h2><p class="section-description">Three steps to get your iPhone ready.</p></div><button class="text-link" data-expand="setup">First-time setup <span aria-hidden="true">↓</span></button></header>
+      <div class="section-body">
+      <ol class="setup-steps">
+        <li>Connect your iPhone with a USB-C cable and unlock it.</li>
+        <li>Turn cellular on. Turn Wi-Fi and Personal Hotspot off.</li>
+        <li>Keep iSH open with <strong>PHONE NETWORK READY</strong> showing.</li>
+      </ol>
+      <div class="command-row"><code>python3 /root/phone_network.py</code><button class="btn" id="copy">Copy command</button></div>
+      </div>
+    </section>
+    <details class="card section-card disclosure" id="setup-tools">
+      <summary class="section-head"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h7m4 0h7M3 17h13m4 0h1"/><circle cx="12" cy="7" r="2"/><circle cx="18" cy="17" r="2"/></svg><span class="section-copy"><strong class="section-title">Setup &amp; maintenance</strong><span class="section-description">Pair your iPhone or update the phone relay.</span></span></summary>
+      <div class="details-body"><div class="card" id="first-pair-card"><div class="card-head"><h2>1. Prepare and pair</h2><span class="status-pill" id="pairing-status">Checking pairing…</span></div>
+      <ol class="setup-steps"><li>Install Apple Devices on Windows and <strong>iSH Shell</strong> on your iPhone.</li><li>In iSH, enter <code>apk add python3</code> and wait for <code>localhost:~#</code>.</li><li>Connect one iPhone by USB. Unlock it and tap <strong>Trust</strong> if asked, then pair it below.</li></ol>
+      <button class="btn primary" id="pair_phone" disabled>Pair connected iPhone</button><p class="sub card-copy" id="pairing-note">A private pairing key stays encrypted for this Windows account.</p>
+    </div>
+    <div class="card"><div class="card-head"><h2>2. Prepare the receiver</h2></div><p class="sub">Disconnect in this app yourself. In iSH, press <strong>Ctrl + C</strong> if the relay is running. Prepare the command, then paste it into iSH.</p><button class="btn" id="prepare_update" disabled>Prepare receiver command</button></div>
+    <div class="card" id="receiver-card" hidden><div class="card-head"><h2>Send the relay</h2><button class="btn" id="copy_receiver" disabled>Copy receiver command</button></div><textarea id="receiver-command" readonly aria-label="Receiver command" spellcheck="false"></textarea><p class="sub card-copy">Once iSH says <strong>READY FOR PHONE UPDATE</strong>, send the update. The receiver waits three minutes; rerun the command if it expires.</p><button class="btn primary" id="send_update" disabled>Send update</button></div>
+    <p id="update-result" class="page-result" role="status" hidden></p>
+    <div class="card"><div class="card-head"><h2>3. Start the relay</h2></div><p class="sub">When iSH says Saved, run the command below. Use Check phone above when the relay is ready.</p><div class="command-row"><code>python3 /root/phone_network.py</code><button class="btn" id="copy-update-command">Copy command</button></div><p class="sub update-backup">The previous script is saved as <code>phone_network.py.backup</code>. Sending an update does not connect this PC.</p></div>
+<details class="nested-disclosure" id="old-keys"><summary>Old prototype keys</summary><div class="details-body"><div class="card"><div class="card-head"><h2>Retire prototype keys</h2></div><p class="sub">This removes only known plaintext key files from the old tests. Your current pairing is kept.</p><ul class="key-notes"><li>Encrypted recovery copies are saved before removal.</li><li>Old test launchers may need those keys restored to work again.</li><li>Disconnect, then pass Check phone in this app first.</li></ul><button class="btn" id="retire_keys" disabled>Retire old keys</button><p class="sub" id="keys-prerequisite">Use Check phone above first, without connecting.</p></div>
+    <p id="keys-result" class="page-result" role="status" hidden></p></div></details></div>
+    </details>
+    <details class="card section-card disclosure" id="about-panel">
+      <summary class="section-head"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.5"/></svg><span class="section-copy"><strong class="section-title">About</strong><span class="section-description">How it works, privacy and licensing.</span></span><span class="summary-note app-version">1.2.0</span></summary>
+      <div class="details-body"><p class="sub">An iSH relay and a Windows client for carrying PC traffic through your iPhone over USB. Keep iSH visible and the phone unlocked.</p>
+    <div class="card"><div class="card-head"><h2>Educational Purposes Only</h2></div><p class="sub">For noncommercial education, personal study and authorized testing. Follow your carrier agreement and applicable laws. This notice does not provide a legal exemption or permission to bypass plan restrictions.</p><p class="sub card-copy">Carrier billing and hotspot classification have not been verified. The project does not promise unlimited data, undetectability, or carrier approval.</p></div>
+    <div class="card"><h2>Connection behavior</h2><dl class="detail-list about-list"><div><dt>Manual connection</dt><dd>Check phone tests USB and HTTPS. Connect PC changes routing after Windows administrator approval. Opening the app never connects.</dd></div><div><dt>Internet fallback</dt><dd>Other enabled connections can still be used. This is not a VPN or kill switch, and it does not guarantee every app uses the phone.</dd></div><div><dt>Carrier usage</dt><dd>Carrier billing and hotspot classification have not been verified. Unlimited usage is not guaranteed.</dd></div><div><dt>Compatibility</dt><dd>Requires Apple device support, WebView2, iSH with Python, and a paired iPhone. Some games, VPNs and interface-bound apps may not work.</dd></div></dl></div>
+    <div class="card"><h2>Privacy &amp; pairing</h2><p class="sub card-copy">The paired device is pinned. Pairing is encrypted for this Windows account; the PC gateway accepts local connections only and uses a per-session password. HTTPS validation stays enabled.</p><p class="sub card-copy">No browsing-history log or telemetry. Local session files hold counters and diagnostic errors. Do not publish pairing files, receiver commands, session folders or old test data.</p></div>
+<details class="nested-disclosure" id="license-details"><summary>License &amp; notices</summary><div class="details-body"><div class="card"><h2>PolyForm Noncommercial 1.0.0</h2><p class="sub card-copy">The same license used by PC Center. Commercial use requires separate written permission from Zuyis. This is source-available software with noncommercial restrictions.</p><pre class="license-text" id="license-text">Required Notice: Copyright © 2026 Zuyis. iPhone USB Internet is licensed under PolyForm Noncommercial 1.0.0. Commercial use requires separate written permission from Zuyis. The original phone-and-cable logo and Zuyis branding are reserved; see TRADEMARKS.txt.
+
+Required Notice: Copyright © 2026 Zuyis. PC Center 0.6.2 and later releases are licensed for noncommercial use only. Commercial use requires separate written permission from Zuyis. Zuyis™, PC Center™, the PC Center gauge logo, and the project&#x27;s visual identity are not licensed under these terms; see TRADEMARKS.md.
+
+# PolyForm Noncommercial License 1.0.0
+
+&lt;https://polyformproject.org/licenses/noncommercial/1.0.0&gt;
+
+## Acceptance
+
+In order to get any license under these terms, you must agree
+to them as both strict obligations and conditions to all
+your licenses.
+
+## Copyright License
+
+The licensor grants you a copyright license for the
+software to do everything you might do with the software
+that would otherwise infringe the licensor&#x27;s copyright
+in it for any permitted purpose. However, you may
+only distribute the software according to [Distribution
+License](#distribution-license) and make changes or new works
+based on the software according to [Changes and New Works
+License](#changes-and-new-works-license).
+
+## Distribution License
+
+The licensor grants you an additional copyright license
+to distribute copies of the software. Your license
+to distribute covers distributing the software with
+changes and new works permitted by [Changes and New Works
+License](#changes-and-new-works-license).
+
+## Notices
+
+You must ensure that anyone who gets a copy of any part of
+the software from you also gets a copy of these terms or the
+URL for them above, as well as copies of any plain-text lines
+beginning with `Required Notice:` that the licensor provided
+with the software. For example:
+
+&gt; Required Notice: Copyright Yoyodyne, Inc. (http://example.com)
+
+## Changes and New Works License
+
+The licensor grants you an additional copyright license to
+make changes and new works based on the software for any
+permitted purpose.
+
+## Patent License
+
+The licensor grants you a patent license for the software that
+covers patent claims the licensor can license, or becomes able
+to license, that you would infringe by using the software.
+
+## Noncommercial Purposes
+
+Any noncommercial purpose is a permitted purpose.
+
+## Personal Uses
+
+Personal use for research, experiment, and testing for
+the benefit of public knowledge, personal study, private
+entertainment, hobby projects, amateur pursuits, or religious
+observance, without any anticipated commercial application,
+is use for a permitted purpose.
+
+## Noncommercial Organizations
+
+Use by any charitable organization, educational institution,
+public research organization, public safety or health
+organization, environmental protection organization,
+or government institution is use for a permitted purpose
+regardless of the source of funding or obligations resulting
+from the funding.
+
+## Fair Use
+
+You may have &quot;fair use&quot; rights for the software under the
+law. These terms do not limit them.
+
+## No Other Rights
+
+These terms do not allow you to sublicense or transfer any of
+your licenses to anyone else, or prevent the licensor from
+granting licenses to anyone else. These terms do not imply
+any other licenses.
+
+## Patent Defense
+
+If you make any written claim that the software infringes or
+contributes to infringement of any patent, your patent license
+for the software granted under these terms ends immediately. If
+your company makes such a claim, your patent license ends
+immediately for work on behalf of your company.
+
+## Violations
+
+The first time you are notified in writing that you have
+violated any of these terms, or done anything with the software
+not covered by your licenses, your licenses can nonetheless
+continue if you come into full compliance with these terms,
+and take practical steps to correct past violations, within
+32 days of receiving notice. Otherwise, all your licenses
+end immediately.
+
+## No Liability
+
+***As far as the law allows, the software comes as is, without
+any warranty or condition, and the licensor will not be liable
+to you for any damages arising out of these terms or the use
+or nature of the software, under any kind of legal claim.***
+
+## Definitions
+
+The **licensor** is the individual or entity offering these
+terms, and the **software** is the software the licensor makes
+available under these terms.
+
+**You** refers to the individual or entity agreeing to these
+terms.
+
+**Your company** is any legal entity, sole proprietorship,
+or other kind of organization that you work for, plus all
+organizations that have control over, are under the control of,
+or are under common control with that organization. **Control**
+means ownership of substantially all the assets of an entity,
+or the power to direct its management and policies by vote,
+contract, or otherwise. Control can be direct or indirect.
+
+**Your licenses** are all the licenses granted to you for the
+software under these terms.
+
+**Use** means anything you do with the software requiring one
+of your licenses.
+</pre></div>
+    <div class="card"><h2>Third-party components</h2><p class="sub card-copy">Python, Tk, pywebview, Python.NET, pywin32, clr-loader, Bottle, proxy-tools, typing-extensions, cffi, pycparser, PyInstaller, tun2socks and Wintun retain their own licenses. Full notices are bundled in the installation's licenses folder.</p><p class="sub card-copy">iPhone is an Apple trademark. This independent project is not affiliated with Apple, Microsoft, iSH or any wireless carrier.</p></div></div></details></div>
+    </details>
+  </div>
+</main>
+<dialog id="dialog" class="card confirm-dialog" aria-labelledby="dialog-title"><h2 id="dialog-title"></h2><div id="dialog-message"></div><div class="dialog-actions"><button class="btn" id="cancel">Cancel</button><button class="btn primary" id="confirm">Continue</button></div></dialog>
+<script src="phone.js"></script>
+</body>
+</html>

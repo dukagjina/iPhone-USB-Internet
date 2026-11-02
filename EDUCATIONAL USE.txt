@@ -1,0 +1,28 @@
+Educational Purposes Only
+
+This experimental project is intended for noncommercial education, personal
+study and authorized testing. Use only devices and service plans you are
+authorized to use, and comply with applicable laws and carrier agreements.
+
+This notice is not a legal exemption, permission to evade plan restrictions,
+or a guarantee that any particular use is lawful. The software license does
+not grant rights under a wireless-service agreement. There is no promise of
+unlimited data, undetectability, carrier approval or hotspot billing avoidance.
+Turning off Personal Hotspot does not establish how a carrier classifies usage.
+
+For example, AT&T's consumer agreement restricts tethering without an eligible
+plan. T-Mobile's terms restrict uses that circumvent its policies and allow
+service suspension or termination for prohibited use. Plans and terms vary.
+Check your own current plan; obtain qualified legal advice before relying on a
+legal interpretation or publicly marketing a use that bypasses restrictions.
+
+Primary references reviewed 1 November 2026:
+AT&T Consumer Service Agreement, Wireless Service Terms:
+https://www.att.com/legal/terms.consumerServiceAgreement.html
+T-Mobile Terms and Conditions, prohibited uses:
+https://www.t-mobile.com/responsibility/legal/terms-and-conditions
+PolyForm Noncommercial 1.0.0:
+https://polyformproject.org/licenses/noncommercial/1.0.0
+
+The LICENSE controls copyright permissions. This purpose statement does not
+modify the standardized PolyForm license or the licenses of bundled components.

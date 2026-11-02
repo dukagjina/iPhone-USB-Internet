@@ -1,0 +1,39 @@
+Publishing iPhone USB Internet 1.2.0
+
+This is an experimental prerelease. The installer is unsigned.
+Publish only the reviewed source and unpaired installer from this project.
+
+Repository
+- Use this project root as the repository, not the old personal app workspace.
+- Commit src, tests, tools, docs, licenses and the root project files.
+- .gitignore excludes vendor binaries, build output, downloads and private data.
+- README.md is the GitHub landing page. LICENSE is PolyForm Noncommercial 1.0.0.
+
+Release assets
+- dist/installer/iPhone-USB-Internet-Setup.exe
+- dist/installer/iPhone-USB-Internet-Setup.exe.sha256
+- dist/iPhone-USB-Internet-1.2.0-source.zip
+- dist/SHA256SUMS.txt
+
+Build and verify
+- python -B tools/test.py
+- npm run test:ui (install the optional UI test dependencies first; see README)
+- python -B tools/build.py --installer
+- python -B tools/verify.py
+- python -B tools/package.py
+- Review the resulting checksums before uploading.
+
+Qualification
+The current local build has passed offline connection/capacity, pairing,
+window lifecycle and UI checks. The installed app has been checked separately;
+normal use does not depend on this project folder. A source-only build starts
+unpaired. No personal keys or device identifiers belong in the release.
+
+Before calling this a stable release, complete fresh-account/device onboarding,
+live reconnect and route-restoration checks, and uninstall validation. Those
+live tests are not replaced by the offline tests. Publish this candidate as a
+prerelease until they are completed. Carrier billing classification is unverified;
+the project does not promise hotspot-cap avoidance. See README and EDUCATIONAL USE.
+
+Official repository: https://github.com/dukagjina/iPhone-USB-Internet
+For each release, upload only the release assets above, and keep the license and notices intact.
